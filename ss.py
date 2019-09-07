@@ -21,18 +21,18 @@ stemmer = SnowballStemmer('english')
 
 for filename in all_files:
     filtered = []
+    a=[]
     fileobject = open(filename, 'rb')
     soup = BeautifulSoup(fileobject, 'html.parser')
-    for script in soup("script"):
-        script.decompose()
+    #for script in soup("script"):
+     #   script.decompose()
     for x in soup.find_all(VALID_TAGS):
-        a = tknzr.tokenize(x.get_text())
+        a += tknzr.tokenize(x.get_text())
     for word in a:
-        if word not in stop_list:
-            if re.match("^[a-zA-Z0-9_]*$", word):
-                word = word.lower()
-                word = stemmer.stem(word)
-                filtered.append(word)
+        if word not in stop_list and re.match("^[a-zA-Z0-9]+((['][_][-][a-zA-Z0-9])?[a-zA-Z0-9]*)*$", word) and len(word)>1:
+            word = word.lower()
+            #word = stemmer.stem(word)
+            filtered.append(word)
     if filtered:
         out.write(str(filtered))
     fileobject.close()
