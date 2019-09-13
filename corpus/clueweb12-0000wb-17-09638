@@ -63,7 +63,8 @@ Content-Type: text/html; charset=UTF-8
 			var ADC_randomOrdNumber = ADC_randomNumberRange( 1000000, 9999999 );
 		</script>
 
-<script type="text/javascript">
+
+<script type="text/javascript">
 var TB_pluginPath = 'http://blogs.automobilemag.com/wp-content/plugins/tweet-blender';
 var TB_config = {
 'widget_show_photos':true,

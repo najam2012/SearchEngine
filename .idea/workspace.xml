@@ -2,12 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="85d52f17-d677-47dd-aafe-63bd13e6b090" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/docids.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/term_index.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/termids.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/outfile.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/corpus/clueweb12-0000wb-17-09638" beforeDir="false" afterPath="$PROJECT_DIR$/corpus/clueweb12-0000wb-17-09638" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docids.txt" beforeDir="false" afterPath="$PROJECT_DIR$/docids.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ss.py" beforeDir="false" afterPath="$PROJECT_DIR$/ss.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/termids.txt" beforeDir="false" afterPath="$PROJECT_DIR$/termids.txt" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -107,6 +106,14 @@
       <option name="presentableId" value="Default" />
       <updated>1567858077486</updated>
     </task>
+    <task id="LOCAL-00001" summary="implemented part 1">
+      <created>1567947351675</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1567947351675</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -124,21 +131,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/ss.py</url>
-          <line>32</line>
-          <option name="timeStamp" value="9" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
-    <watches-manager>
-      <configuration name="PythonConfigurationType">
-        <watch expression="tknzr.tokenize(x.get_text())" language="Python" />
-      </configuration>
-    </watches-manager>
+    <MESSAGE value="implemented part 1" />
+    <option name="LAST_COMMIT_MESSAGE" value="implemented part 1" />
   </component>
 </project>
