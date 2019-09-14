@@ -25,28 +25,37 @@ VALID_TAGS = ['div','span', 'p', 'a','center', 'b', 'strong', 'em', 'i',  'li', 
 # Snowball stemmer is used for stemming
 stemmer = SnowballStemmer('english')
 
+invertedhash={}
 termidhash={}
 count_term_ids=0
+count_term_ids2=0
 count_doc_ids=0
 
 for filename in all_files:
+    word_position=0
     with open ("docids.txt",'a') as docids :
         docids.write(str(str(count_doc_ids)+'\t'+filename[7:]+'\n'))
-    count_doc_ids=count_doc_ids+1
+    count_doc_ids=count_term_ids+1
     try:
         with open(filename, 'rb') as fileobject :
             soup = BeautifulSoup(fileobject, 'html.parser')
-
             for x in soup.find_all('body'):
                 all_words=[]
                 for word in tknzr.tokenize(x.get_text(" ")):
+                    word_position+=1
                     word = word.lower()
                     if word not in stop_list and re.match("^[(a-zA-Z0-9-_')]*$", word) and len(word)>1:
                         #^[a-zA-Z0-9]+((['][_][-][a-zA-Z0-9])?[a-zA-Z0-9]*)*$
                         word = stemmer.stem(word)
                         if not word in termidhash:
-                            termidhash[word] = count_term_ids
+                            termidhash[word]=count_term_ids2
+                            invertedhash[word] = [count_term_ids2, +1, 0,{count_doc_ids,word_position}]
+                            word_position+=1
                             all_words.append(word)
+                            count_term_ids2=count_term_ids2+1
+                        else:
+                            invertedhash[word][1]+=1
+
                 with open("termids.txt", 'a') as termids:
                     for w in all_words:
                         termids.write(str(str(count_term_ids) + '\t' + w + '\n'))
