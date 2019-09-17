@@ -40,7 +40,7 @@ def createInvertedIndex_Hastable():
             count_doc_ids=count_doc_ids+1
 
             with open(filename, 'rb') as fileobject :
-                soup = BeautifulSoup(fileobject, 'html.parser')
+                soup = BeautifulSoup(fileobject, 'html.parser',from_encoding="iso-8859-1")
                 for x in soup.find_all('body'):     # taking the <body/> tag
                     all_words=[]
                     for word in tknzr.tokenize(x.get_text(" ")):
@@ -92,7 +92,7 @@ def createInverted_BySorting():
             count_doc_ids=count_doc_ids+1
 
             with open(filename, 'rb') as fileobject :
-                soup = BeautifulSoup(fileobject, 'html.parser')
+                soup = BeautifulSoup(fileobject, 'html.parser',from_encoding="iso-8859-1")
                 for x in soup.find_all('body'):     # taking the <body/> tag
                     all_words=[]
                     for word in tknzr.tokenize(x.get_text(" ")):
@@ -167,16 +167,16 @@ def read(invertedHashtable,dochash,term):
             print( "Termid : "+str(invertedHashtable[term][0]))
             print("Number of documents containing term: "+str(len(invertedHashtable[term][2])))
             print("Term frequency in corpus: "+str(invertedHashtable[term][1]))
-            for key in invertedHashtable[term][2].keys():
-                print(dochash[key])
+            #for key in invertedHashtable[term][2].keys():
+             #   print(dochash[key])
 
 if __name__ == "__main__":
     import sys
-    print(sys.argv[2])
     if str(sys.argv[1][2:]) == 'term':
         term=sys.argv[2]
         #printInvertedHash(createInvertedIndex_Hastable())
         #printSortedIndex(createInverted_BySorting())
+        print("Indexing....")
         x,y=createInvertedIndex_Hastable()
         printInvertedHash(x)
         read(x,y,term)
